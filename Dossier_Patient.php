@@ -87,8 +87,9 @@
                         <tr>
                             <th>Civilité</th>
                             <td>
-                                <form>
-                                    <select name="civilite" id="civilite" size="1">
+                               <form action="#" method="post">
+                                    <select value="valeur1" name="civilite" id="civilite" type="text">
+                                        <option value="<?php echo $civilite; ?>"><?php echo $civilite; ?></option>
                                         <option>Mr</option>
                                         <option>Mme</option>
                                     </select>
