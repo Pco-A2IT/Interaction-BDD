@@ -31,6 +31,7 @@ CREATE TABLE `patient` (
   `nom` text NOT NULL,
   `prenom` varchar(250) NOT NULL,
   `civilite` enum('Mr','Mme') NOT NULL,
+  `date_naissance` date NOT NULL,  
   `num_telephone` varchar(255) NOT NULL ,    
   `ville` varchar(255) NOT NULL,
   `code_postal` varchar(255) NOT NULL ,       
