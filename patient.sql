@@ -37,11 +37,11 @@ CREATE TABLE `patient` (
   `code_postal` varchar(255) NOT NULL ,       
   `adresse` varchar(255) NOT NULL ,  
   `date_creation_dossier` date NOT NULL, 
-  `scan_cerebral` enum('YES','NO') NOT NULL, 
-  `angioscan` ENUM('YES','NO') NOT NULL ,  
-  `bilan_biologique` ENUM('YES','NO') NOT NULL , 
-  `bilan_cardiaque` ENUM('YES','NO') NOT NULL , 
-  `traitement_termine` ENUM('YES','NO') NOT NULL , 
+  `scan_cerebral` boolean not null default 0 , 
+  `angioscan` boolean not null default 0 ,  
+  `bilan_biologique` boolean not null default 0 ,  
+  `bilan_cardiaque` boolean not null default 0 ,  
+  `traitement_termine` boolean not null default 0 ,   
   KEY `id_patient` (`id_patient`))     
   ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
