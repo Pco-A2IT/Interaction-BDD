@@ -9,13 +9,21 @@ catch(Exception $e)
         die('Erreur : '.$e->getMessage());
 }
 
+$choix1 = (isset($_POST['choix1'])) ? 1 : 0;
+$choix2 = (isset($_POST['choix2'])) ? 1 : 0;
+$choix3 = (isset($_POST['choix3'])) ? 1 : 0;
+$choix4 = (isset($_POST['choix4'])) ? 1 : 0;
+$choix5 = (isset($_POST['choix5'])) ? 1 : 0;
+$choix6 = (isset($_POST['choix6'])) ? 1 : 0;
+
+
+
+
+
 // Insertion du message à l'aide d'une requête préparée
-$req = $bdd->prepare('INSERT INTO patient(id_patient,nom, prenom,civilite,date_naissance,num_telephone,ville,code_postal,adresse,date_creation_dossier,scan_cerebral,angioscan,bilan_biologique,bilan_cardiaque,traitement_termine) VALUES(NULL,?, ?,?,? ,?, ?, ?, ?,NOW(), \'YES\',\'NO\',\'YES\',\'YES\',\'NO\')'); // ici le ? correspond à la valeur que l'on rentre dans le formulaire
-$reqmt = $bdd->prepare('INSERT INTO medecin(id_medecin,nom, prenom,mail,num_telephone) VALUES(NULL,?,?,?,?)');
-$reqmu = $bdd->prepare('INSERT INTO medecin(id_medecin,nom, prenom,mail,num_telephone) VALUES(NULL,?,?,?,?)');
-$req->execute(array($_POST['nom'], $_POST['prenom'],$_POST['civilite'],  $_POST['date10_annee'].'-'. $_POST['date10_mois'].'-'. $_POST['date10_jour'],$_POST['num_telephone'] ,$_POST['ville'],$_POST['code_postal'],$_POST['adresse']));
-$reqmt->execute(array($_POST['nom_mt'], $_POST['prenom_mt'], $_POST['email_mt'],  $_POST['telephone_mt']));
-$reqmu->execute(array($_POST['nom_mu'], $_POST['prenom_mu'], $_POST['email_mu'],  $_POST['telephone_mu']));
+$req = $bdd->prepare('INSERT INTO patient(id_patient,nom, prenom,civilite,date_naissance,num_telephone,ville,code_postal,adresse,date_creation_dossier,scan_cerebral,angioscan,bilan_biologique,bilan_cardiaque,traitement_termine) VALUES(NULL,?, ?,?,? ,?, ?, ?, ?,NOW(),?,?,?,?,?)'); // ici le ? correspond à la valeur que l'on rentre dans le formulaire
+$req->execute(array($_POST['nom'], $_POST['prenom'],$_POST['civilite'],  $_POST['date10_annee'].'-'. $_POST['date10_mois'].'-'. $_POST['date10_jour'],$_POST['num_telephone'] ,$_POST['ville'],$_POST['code_postal'],$_POST['adresse'], $choix1, $choix2, $choix3, $choix4, $choix5));
+
 
 $req = $bdd->query("SELECT * FROM patient");
 while ($donnees = $req->fetch())
