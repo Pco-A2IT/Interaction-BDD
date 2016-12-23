@@ -10,7 +10,8 @@
     </head>
     
     <body>
-    <form action="AjoutBDD_dossierPatient.php" method="post">
+    <form action="AjoutBDD_dossierPatient.php" id="monFormulaire" method="post">
+    <fieldset> 
     <div class="gris">
             <div  class="gris2">
             <div  class="carreGris" id="menu1";>
@@ -88,10 +89,12 @@
                             <th>Civilité</th>
                             <td>
                                 <form>
-                                    <select name="civilite" id="civilite" size="1">
+                                    
+                                    <select name="civilite" id="civilite" size="1"  onchange="document.getElementById('monFormulaire').submit();">
                                         <option>Mr</option>
                                         <option>Mme</option>
                                     </select>
+                                    
                                 </form>
                             </td>
                         </tr>
@@ -194,11 +197,11 @@
                         </tr>
                         <tr>
                             <td>AngioScan</td>
-                            <td><INPUT type="checkbox" name="choix1" id="AngioScan" value="1"/></td>
+                            <td><INPUT type="checkbox" name="choix2" id="AngioScan" value="1"/></td>
                         </tr>
                         <tr>
                             <td>Bilan biologique</td>
-                            <td><INPUT type="checkbox" name="choix1" id="Bilan Biologique" value="1"/></td>
+                            <td><INPUT type="checkbox" name="choix3" id="Bilan Biologique" value="1"/></td>
                         </tr>
                     </table>
                 </div>
@@ -212,28 +215,28 @@
                         </tr>
                         <tr>
                             <td>IRM</td>
-                            <td><INPUT type="checkbox" name="choix1" id="irmp" value="1"/></td>
-                            <td><INPUT type="checkbox" name="choix1" id="irmr" value="1"/></td>
+                            <td><INPUT type="checkbox" name="choix4" id="irmp" value="1"/></td>
+                            <td><INPUT type="checkbox" name="choix5" id="irmr" value="1"/></td>
                         </tr>
                         <tr>
                             <td>Bilan cardiaque ETT</td>
-                            <td><INPUT type="checkbox" name="choix1" id="ettp" value="1"/></td>
-                            <td><INPUT type="checkbox" name="choix1" id="ettr" value="1"/></td>
+                            <td><INPUT type="checkbox" name="choix6" id="ettp" value="1"/></td>
+                            <td><INPUT type="checkbox" name="choix7" id="ettr" value="1"/></td>
                         </tr>
                         <tr>
                             <td>Consultation neurologue</td>
-                            <td><INPUT type="checkbox" name="choix1" id="neurop" value="1"/></td>
-                            <td><INPUT type="checkbox" name="choix1" id="neuror" value="1"/></td>
+                            <td><INPUT type="checkbox" name="choix8" id="neurop" value="1"/></td>
+                            <td><INPUT type="checkbox" name="choix9" id="neuror" value="1"/></td>
                         </tr>
                     </table>
                     <table>
                         <tr>
                             <td>Récapitulatif envoyé au médecin traitant</td>
-                            <td><INPUT type="checkbox" name="choix1" id="recap_mt"value="1"/></td>
+                            <td><INPUT type="checkbox" name="choix10" id="recap_mt"value="1"/></td>
                         </tr>
                         <tr>
                             <td>Récapitulatif envoyé à l'urgentiste</td>
-                            <td><INPUT type="checkbox" name="choix1" id="recap_mu" value="1"/></td>
+                            <td><INPUT type="checkbox" name="choix11" id="recap_mu" value="1"/></td>
                         </tr>
                         
                         
@@ -257,32 +260,26 @@
                 </div>
         </div>
         </div>
+        </fieldset> 
         </form>
     </body>
 
 </html>
 
      <script>
-
         $(document).ready(function(){
-
            
             //Initialisation : on cache tous les onglets puis on affiche le premier
             $('.onglet').hide();
             $('#onglet1').show();
-
             //Quand on clique sur un titre
             $('.title').on('click',function(){
-
                 // On recupere le div global id = container
                 var container = $(this).parent().parent();
-
                 $('.active').removeClass('active');
-
                 
                 // On cache tous les onglets
                 container.children('.onglet').hide();
-
                 //On affiche celui correspondant à l'attribut target
                 container.children('#'+$(this).attr('target')).show();
                 $(this).addClass("active");
