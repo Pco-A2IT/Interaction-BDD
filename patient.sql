@@ -39,9 +39,15 @@ CREATE TABLE `patient` (
   `date_creation_dossier` date NOT NULL, 
   `scan_cerebral` boolean not null default 0 , 
   `angioscan` boolean not null default 0 ,  
-  `bilan_biologique` boolean not null default 0 ,  
-  `bilan_cardiaque` boolean not null default 0 ,  
-  `traitement_termine` boolean not null default 0 ,   
+  `bilan_biologique` boolean not null default 0 ,
+    `irmp` boolean not null default 0 ,
+    `irmr` boolean not null default 0 ,  
+  `bilan_cardiaquep` boolean not null default 0 ,
+    `bilan_cardiaquer` boolean not null default 0 ,
+    `neurop` boolean not null default 0 ,
+    `neuror` boolean not null default 0 ,
+  `recap_mt` boolean not null default 0 ,
+    `recap_mu` boolean not null default 0 , 
   KEY `id_patient` (`id_patient`))     
   ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
