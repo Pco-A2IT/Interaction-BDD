@@ -9,11 +9,9 @@ catch(Exception $e)
         die('Erreur : '.$e->getMessage());
 }
 
-$req = $bdd->prepare('INSERT INTO centre(num_siret,num_telephone,adresse) VALUES(NULL,\'aa\', \'aa\' )'); 
-
-// ici le ? correspond à la valeur que l'on rentre dans le formulaire
-
-
+$req = $bdd->prepare('INSERT INTO CentreSante(num_siret,num_telephone,heure_ouverture,heure_fermeture,adresse,hcl,presence_scan_cerebral,presence_angioscan,presence_scan_bilan_biologique,presence_scan_bilan_cardiaque,presence_neurologue     ) VALUES(1,?,?,?,?,?,FALSE,FALSE,FALSE,FALSE,FALSE)'
+// ici le ? correspond à la valeur que l'on rentre dans le formulaire, les examens sont false par défault
+)
 
 
 

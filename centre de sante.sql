@@ -30,14 +30,18 @@ CREATE TABLE IF NOT EXISTS `Centre` (
     
   
     
-  `num_siret` int(10) NOT NULL,
-  `num_telephone` varchar(255) NOT NULL DEFAULT '-', 
+  `num_siret` INT(10) PRIMARY KEY NOT NULL,
+  `num_telephone` INT NOT NULL, 
   `heure_ouverture` TIME NOT NULL,
   `heure_fermeture` TIME NOT NULL,
-  `adresse` varchar(255) NOT NULL DEFAULT '-', 
+  `adresse` TEXT, 
   `hcl` ENUM('YES','NO') NOT NULL DEFAULT 'NO', 
-  
-   KEY `num_siret` (`num_siret`)) 
+    `presence_scan_cerebral` ENUM('YES','NO') NOT NULL DEFAULT 'NO',
+    `presence_angioscan` ENUM('YES','NO') NOT NULL DEFAULT 'NO',
+    `presence_scan_bilan_biologique` ENUM('YES','NO') NOT NULL DEFAULT 'NO',
+    `presence_scan_bilan_cardiaque` ENUM('YES','NO') NOT NULL DEFAULT 'NO',
+    `presence_neurologue` ENUM('YES','NO') NOT NULL DEFAULT 'NO',
+
    ENGINE=MyISAM  DEFAULT CHARSET=latin1 ;
 
 --

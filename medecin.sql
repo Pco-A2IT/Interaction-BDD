@@ -29,12 +29,11 @@ CREATE TABLE IF NOT EXISTS `Medecin` (
     
  
     
-  `id_medecin` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ID_medecin` INT(10) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
   `mail` varchar(255) NOT NULL,
-  `num_telephone` varchar(255) NOT NULL DEFAULT '-',
-   KEY `id_medecin` (`id_medecin`)) 
+  `num_telephone` INT NOT NULL,
    ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
 
 --
@@ -42,8 +41,8 @@ CREATE TABLE IF NOT EXISTS `Medecin` (
 --
 
 INSERT INTO `Medecin` (`ID_medecin`, `nom`, `prenom`, `mail`, `num_telephone`) VALUES
-(NULL, 'Guichard', 'Florent', 'f.guichard@gmail.com', '0678974532'),
-(NULL, 'Prost', 'Jean-Yves', 'jy.prost@gmail.com', '0678543567');
+(NULL, 'Guichard', 'Florent', 'f.guichard@gmail.com', 0678974532),
+(NULL, 'Prost', 'Jean-Yves', 'jy.prost@gmail.com', 0678543567);
 
 
 

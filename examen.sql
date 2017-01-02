@@ -29,9 +29,11 @@ CREATE TABLE IF NOT EXISTS `Examen` (
     
     
   
-  `nom` varchar(255) NOT NULL DEFAULT '-', 
-
-   KEY `nom` (`nom`)) 
+  `nom_examen` varchar(255) NOT NULL DEFAULT '-', 
+  `ID_patient` INT NOT NULL,
+  `planifie` ENUM ('YES','NO') NOT NULL DEFAULT 'NO',
+  `effectue` ENUM ('YES','NO') NOT NULL DEFAULT 'NO',
+   PRIMARY KEY ('nom_examen','ID_patient')) 
    ENGINE=MyISAM  DEFAULT CHARSET=latin1 ;
 
 --

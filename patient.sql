@@ -27,17 +27,19 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `patient` (
-  `id_patient` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ID_patient` int(10) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `nom` text NOT NULL,
   `prenom` varchar(250) NOT NULL,
   `civilite` enum('Mr','Mme') NOT NULL,
   `date_naissance` date NOT NULL,  
-  `num_telephone` varchar(255) NOT NULL ,    
+  `num_telephone` INT NOT NULL ,    
   `ville` varchar(255) NOT NULL,
   `code_postal` varchar(255) NOT NULL ,       
   `adresse` varchar(255) NOT NULL ,  
   `date_creation_dossier` date NOT NULL, 
-  `scan_cerebral` boolean not null default 0 , 
+    `num_medecin_traitant` INT,
+    `num_urgentiste` INT NOT NULL,
+  /*`scan_cerebral` boolean not null default 0 , 
   `angioscan` boolean not null default 0 ,  
   `bilan_biologique` boolean not null default 0 ,
     `irmp` boolean not null default 0 ,
@@ -47,8 +49,7 @@ CREATE TABLE `patient` (
     `neurop` boolean not null default 0 ,
     `neuror` boolean not null default 0 ,
   `recap_mt` boolean not null default 0 ,
-    `recap_mu` boolean not null default 0 , 
-  KEY `id_patient` (`id_patient`))     
+    `recap_mu` boolean not null default 0 ,  */    
   ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
