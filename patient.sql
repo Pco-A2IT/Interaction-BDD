@@ -27,29 +27,22 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `patient` (
-  `ID_patient` int(10) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `nom` text NOT NULL,
-  `prenom` varchar(250) NOT NULL,
-  `civilite` enum('Mr','Mme') NOT NULL,
-  `date_naissance` date NOT NULL,  
-  `num_telephone` INT NOT NULL ,    
-  `ville` varchar(255) NOT NULL,
-  `code_postal` varchar(255) NOT NULL ,       
-  `adresse` varchar(255) NOT NULL ,  
+  `id_patient` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nom_p` text NOT NULL,
+  `prenom_p` varchar(250) NOT NULL,
+  `civilite_p` enum('Mr','Mme') NOT NULL,
+  `date_naissance` date NOT NULL,     
+  `telephone_p` varchar(255) NOT NULL ,    
+  `ville_p` varchar(255) NOT NULL,
+  `codePostal_p` varchar(255) NOT NULL ,       
+  `adresse_p` varchar(255) NOT NULL ,  
   `date_creation_dossier` date NOT NULL, 
-    `num_medecin_traitant` INT,
-    `num_urgentiste` INT NOT NULL,
-  /*`scan_cerebral` boolean not null default 0 , 
-  `angioscan` boolean not null default 0 ,  
-  `bilan_biologique` boolean not null default 0 ,
-    `irmp` boolean not null default 0 ,
-    `irmr` boolean not null default 0 ,  
-  `bilan_cardiaquep` boolean not null default 0 ,
-    `bilan_cardiaquer` boolean not null default 0 ,
-    `neurop` boolean not null default 0 ,
-    `neuror` boolean not null default 0 ,
-  `recap_mt` boolean not null default 0 ,
-    `recap_mu` boolean not null default 0 ,  */    
+  `scan_cerebral` enum('YES','NO') NOT NULL, 
+  `angioscan` ENUM('YES','NO') NOT NULL ,  
+  `bilan_biologique` ENUM('YES','NO') NOT NULL , 
+  `bilan_cardiaque` ENUM('YES','NO') NOT NULL , 
+  `traitement_termine` ENUM('YES','NO') NOT NULL , 
+  KEY `id_patient` (`id_patient`))     
   ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
