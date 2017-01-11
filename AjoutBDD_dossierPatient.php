@@ -9,7 +9,7 @@ catch(Exception $e)
         die('Erreur : '.$e->getMessage());
 }
 // Insertion du message à l'aide d'une requête préparée
-$req = $bdd->prepare('INSERT INTO patient(id_patient,nom_p, prenom_p,civilite_p,date_naissance,telephone_p,ville_p,codePostal_p,adresse_p,date_creation_dossier,scan_cerebral,angioscan,bilan_biologique,bilan_cardiaque,traitement_termine) VALUES(NULL,?, ?,?,? ,?, ?, ?, ?,NOW(), \'YES\',\'NO\',\'YES\',\'YES\',\'NO\')'); // ici le ? correspond à la valeur que l'on rentre dans le formulaire
+$req = $bdd->prepare('INSERT INTO Patient(id_patient,nom_p, prenom_p,civilite_p,date_naissance,mail_p,telephone_p,ville_p,codePostal_p,adresse_p,date_creation_dossier,medecin_traitant,urgentiste) VALUES(NULL,?, ?,?,? ,\'YES\',?, ?, ?, ?,NOW(),\'YES\',\'NO\')'); // ici le ? correspond à la valeur que l'on rentre dans le formulaire
 $req->execute(array($_POST['nom_p'], $_POST['prenom_p'],$_POST['civilite_p'],  $_POST['date10_annee'].'-'. $_POST['date10_mois'].'-'. $_POST['date10_jour'],$_POST['telephone_p'] ,$_POST['ville_p'],$_POST['codePostal_p'],$_POST['adresse_p']));
 $req = $bdd->query("SELECT * FROM patient");
 while ($donnees = $req->fetch())

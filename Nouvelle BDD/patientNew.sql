@@ -23,28 +23,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Patient`
+-- Structure de la table `patient`
 --
 
-CREATE TABLE `Patient` (
+CREATE TABLE `patient` (
   `id_patient` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nom_p` text NOT NULL,
   `prenom_p` varchar(250) NOT NULL,
   `civilite_p` enum('Mr','Mme') NOT NULL,
-  `date_naissance` date NOT NULL, 
-  `mail_p` varchar(255) NOT NULL ,     
+  `date_naissance` date NOT NULL,    
+  `mail_p` varchar(255) NOT NULL ,      
   `telephone_p` varchar(255) NOT NULL ,    
   `ville_p` varchar(255) NOT NULL,
   `codePostal_p` varchar(255) NOT NULL ,       
   `adresse_p` varchar(255) NOT NULL ,  
   `date_creation_dossier` date NOT NULL, 
   `medecin_traitant` enum('YES','NO') NOT NULL, 
-  `urgentiste` enum('YES','NO') NOT NULL ,  
+  `urgentiste` ENUM('YES','NO') NOT NULL ,  
   KEY `id_patient` (`id_patient`))     
   ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `Patient`
+-- Contenu de la table `patient`
 --
 
 
