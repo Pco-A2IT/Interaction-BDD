@@ -28,6 +28,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `patient` (
   `id_patient` int(10) unsigned NOT NULL AUTO_INCREMENT,
+    `ID_medecin_traitant` int(10) NOT NULL,
+    `ID_medecin_autre` int(10) NOT NULL,
   `nom_p` text NOT NULL,
   `prenom_p` varchar(250) NOT NULL,
   `civilite_p` enum('Mr','Mme') NOT NULL,
@@ -40,8 +42,12 @@ CREATE TABLE `patient` (
   `date_creation_dossier` date NOT NULL, 
   `medecin_traitant` enum('YES','NO') NOT NULL, 
   `urgentiste` ENUM('YES','NO') NOT NULL ,  
-  KEY `id_patient` (`id_patient`))     
-  ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  KEY `id_patient` (`id_patient`)
+    
+) 
+  
+  
+  ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `patient`

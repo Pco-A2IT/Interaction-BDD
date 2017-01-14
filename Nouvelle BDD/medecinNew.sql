@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `Medecin` (
   `mail_m` varchar(255) NOT NULL,
   `telephone_m` varchar(255) NOT NULL DEFAULT '-',
    KEY `id_medecin` (`id_medecin`)) 
-   ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
+   ENGINE=InnoDB   DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Contenu de la table `Medecin`

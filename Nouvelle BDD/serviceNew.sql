@@ -33,8 +33,9 @@ CREATE TABLE IF NOT EXISTS `Service` (
   `numSiret` varchar(255) NOT NULL DEFAULT '-',
   `telephone_s` varchar(255) NOT NULL DEFAULT '-',
   `horaires_s` varchar(255) NOT NULL DEFAULT '-',    
-   KEY `id_service` (`id_service`)) 
-   ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
+   KEY `id_service` (`id_service`))
+)
+   ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
 
 --
 -- Contenu de la table `Service`
