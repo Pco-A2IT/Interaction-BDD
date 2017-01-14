@@ -30,9 +30,15 @@ CREATE TABLE IF NOT EXISTS `Medecin` (
  
     
   `id_medecin` int(10) unsigned NOT NULL AUTO_INCREMENT,
+    `num_adeli_m` int(10) unsigned NOT NULL,
+    `id_service` int(10) unsigned NOT NULL,
+    `civilite_m` enum('Mr','Mme') NOT NULL,
   `nom_m` varchar(255) NOT NULL,
   `prenom_m` varchar(255) NOT NULL,
   `mail_m` varchar(255) NOT NULL,
+    `ville_m` varchar(255) NOT NULL,
+  `codePostal_m` varchar(255) NOT NULL ,
+    `adresse_m` varchar(255) NOT NULL , 
   `telephone_m` varchar(255) NOT NULL DEFAULT '-',
    KEY `id_medecin` (`id_medecin`)) 
    ENGINE=InnoDB   DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
