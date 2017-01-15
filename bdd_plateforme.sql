@@ -34,11 +34,11 @@ CREATE TABLE `Patient` (
   `codePostal_p` varchar(255) NOT NULL DEFAULT '',       
   `adresse_p` varchar(255) NOT NULL DEFAULT '',  
   `date_creation_dossier` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP, 
-  `medecin_traitant` int(11) NOT NULL , 
-  `urgentiste` int(11) NOT NULL ,
+  `ID_medecin_traitant` int(11) NOT NULL , 
+  `ID_medecin_autre` int(11) NOT NULL ,
   PRIMARY KEY  (`id_patient`),
-  KEY `medecin_traitant` (`medecin_traitant`),
-  KEY `urgentiste` (`urgentiste`)
+  KEY `ID_medecin_traitant` (`ID_medecin_traitant`),
+  KEY `ID_medecin_autre` (`ID_medecin_autre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
