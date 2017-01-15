@@ -58,12 +58,18 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Medecin`;
 CREATE TABLE `Medecin` (
-  `id_medecin` int(11) unsigned NOT NULL AUTO_INCREMENT,
+    
+    `id_medecin` int(10) unsigned NOT NULL AUTO_INCREMENT,
+    `num_adeli_m` int(10) unsigned NOT NULL,
+    `id_service` int(10) unsigned NOT NULL,
+    `civilite_m` enum('Mr','Mme') NOT NULL,
   `nom_m` varchar(255) NOT NULL DEFAUlT '',
-  `prenom_m` varchar(255) NOT NULL DEFAUlT '',
-  `mail_m` varchar(255) NOT NULL DEFAUlT '',
-  `telephone_m` varchar(255) NOT NULL DEFAULT '',
-  `numero_ADELI` varchar(255) NOT NULL DEFAULT '',
+  `prenom_m` varchar(255) NOT NULL,
+  `mail_m` varchar(255) NOT NULL,
+    `ville_m` varchar(255) NOT NULL,
+  `codePostal_m` varchar(255) NOT NULL ,
+    `adresse_m` varchar(255) NOT NULL , 
+  `telephone_m` varchar(255) NOT NULL DEFAULT '-',
   
   PRIMARY KEY  (`id_medecin`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -74,9 +80,9 @@ CREATE TABLE `Medecin` (
 
 
 /*!40000 ALTER TABLE `Medecin` DISABLE KEYS */;
-LOCK TABLES `Medecin` WRITE;
+/*LOCK TABLES `Medecin` WRITE;
 INSERT INTO `Medecin` VALUES (1,'Tournesol','Jacques','jacques.tournesol@free.fr','0412654587','435'),(2,'Sheperd','Derek','derek.sheperd@wanadoo.fr','0154348709','541'),(3,'Maboule','Robert','robert.maboule@orange.fr','0423656567','321'),(4,'House','Gregory','gregory.house@gmail.com','0943543412','111');
-UNLOCK TABLES;
+UNLOCK TABLES;*/
 /*!40000 ALTER TABLE `Medecin` ENABLE KEYS */;
 
 --
