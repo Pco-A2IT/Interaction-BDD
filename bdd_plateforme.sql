@@ -1,6 +1,6 @@
 -- MySQL dump 10.10
 --
--- Host: localhost    Database: bdd_plateformeT
+-- Host: localhost    Database: bdd_plateforme
 -- ------------------------------------------------------
 -- Server version	5.0.22-log
 
@@ -19,23 +19,23 @@
 -- Table structure for table `Patient`
 --
 
-CREATE DATABASE bdd_plateformeT;
-USE bdd_plateformeT;
+CREATE DATABASE bdd_plateforme;
+USE bdd_plateforme;
 DROP TABLE IF EXISTS `Patient`;
 CREATE TABLE `Patient` (
   `id_patient` int(11) NOT NULL auto_increment,
-  `nom_p` text NOT NULL,
-  `prenom_p` varchar(250) NOT NULL,
-  `civilite_p` enum('Mr','Mme') NOT NULL,
-  `date_naissance` date NOT NULL,    
-  `mail_p` varchar(255) NOT NULL ,      
-  `telephone_p` varchar(255) NOT NULL ,    
-  `ville_p` varchar(255) NOT NULL,
-  `codePostal_p` varchar(255) NOT NULL ,       
-  `adresse_p` varchar(255) NOT NULL ,  
-  `date_creation_dossier` date NOT NULL, 
-  `medecin_traitant` int(11) NOT NULL, 
-  `urgentiste` int(11) NOT NULL,
+  `nom_p` varchar(250) NOT NULL DEFAULT '',
+  `prenom_p` varchar(250) NOT NULL DEFAULT '',
+  `civilite_p` enum('Mr','Mme') NOT NULL DEFAULT 'Mr',
+  `date_naissance` date NOT NULL DEFAULT '0000-00-00',    
+  `mail_p` varchar(255) NOT NULL DEFAULT '',      
+  `telephone_p` varchar(255) NOT NULL DEFAULT '',    
+  `ville_p` varchar(255) NOT NULL DEFAULT '',
+  `codePostal_p` varchar(255) NOT NULL DEFAULT '',       
+  `adresse_p` varchar(255) NOT NULL DEFAULT '',  
+  `date_creation_dossier` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP, 
+  `medecin_traitant` int(11) NOT NULL , 
+  `urgentiste` int(11) NOT NULL ,
   PRIMARY KEY  (`id_patient`),
   KEY `medecin_traitant` (`medecin_traitant`),
   KEY `urgentiste` (`urgentiste`)
@@ -59,10 +59,12 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `Medecin`;
 CREATE TABLE `Medecin` (
   `id_medecin` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `nom_m` varchar(255) NOT NULL,
-  `prenom_m` varchar(255) NOT NULL,
-  `mail_m` varchar(255) NOT NULL,
-  `telephone_m` varchar(255) NOT NULL DEFAULT '-',
+  `nom_m` varchar(255) NOT NULL DEFAUlT '',
+  `prenom_m` varchar(255) NOT NULL DEFAUlT '',
+  `mail_m` varchar(255) NOT NULL DEFAUlT '',
+  `telephone_m` varchar(255) NOT NULL DEFAULT '',
+  `numero_ADELI` varchar(255) NOT NULL DEFAULT '',
+  
   PRIMARY KEY  (`id_medecin`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -73,7 +75,7 @@ CREATE TABLE `Medecin` (
 
 /*!40000 ALTER TABLE `Medecin` DISABLE KEYS */;
 LOCK TABLES `Medecin` WRITE;
-INSERT INTO `Medecin` VALUES (1,'Tournesol','Jacques','jacques.tournesol@free.fr','0412654587'),(2,'Sheperd','Derek','derek.sheperd@wanadoo.fr','0154348709'),(3,'Maboule','Robert','robert.maboule@orange.fr','0423656567'),(4,'House','Gregory','gregory.house@gmail.com','0943543412');
+INSERT INTO `Medecin` VALUES (1,'Tournesol','Jacques','jacques.tournesol@free.fr','0412654587','435'),(2,'Sheperd','Derek','derek.sheperd@wanadoo.fr','0154348709','541'),(3,'Maboule','Robert','robert.maboule@orange.fr','0423656567','321'),(4,'House','Gregory','gregory.house@gmail.com','0943543412','111');
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `Medecin` ENABLE KEYS */;
 
@@ -84,15 +86,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `Centre_de_sante`;
 CREATE TABLE `Centre_de_sante` (
   `num_siret` int(11) unsigned NOT NULL,
-  `telephone_c` varchar(255) NOT NULL DEFAULT '-', 
-  `horaires_c` varchar(255) NOT NULL DEFAULT '-', 
-  `adresse_c` varchar(255) NOT NULL DEFAULT '-', 
-  `hcl` ENUM('YES','NO') NOT NULL DEFAULT 'NO', 
-  `scan_cerebral` enum('YES','NO') NOT NULL, 
-  `angioscan` ENUM('YES','NO') NOT NULL ,  
-  `bilanBiologique` ENUM('YES','NO') NOT NULL , 
-  `bilanCardiaque` ENUM('YES','NO') NOT NULL , 
-  `neurologue` ENUM('YES','NO') NOT NULL , 
+  `nom_c` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY  (`num_siret`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -103,7 +97,7 @@ CREATE TABLE `Centre_de_sante` (
 
 /*!40000 ALTER TABLE `Centre_de_sante` DISABLE KEYS */;
 LOCK TABLES `Centre_de_sante` WRITE;
-INSERT INTO `Centre_de_sante` VALUES (967,'0443323445','8h-23h','32 rue de la sante ','YES','NO','YES','YES','YES','NO'),(334,'0454783193','9h-21h','65 rue Pasteur','NO','NO','YES','NO','YES','NO'),(112,'0466778809','10h-15h','43 quai Saint Vincent','YES','NO','YES','NO','YES','NO');
+INSERT INTO `Centre_de_sante` VALUES (967,'Hopital Lyon EST'),(334,'Hopital Lyon 6ème'),(112,'Clinique du Tonkin');
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `Centre_de_sante` ENABLE KEYS */;
 
@@ -114,10 +108,14 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `Service`;
 CREATE TABLE `Service` (
   `id_service` int(11) NOT NULL auto_increment,
-  `numSiret` varchar(255) NOT NULL,
-  `nom_s` varchar(255) NOT NULL,
-  `telephone_s` varchar(255) NOT NULL,
-  `horaires_s` varchar(255) NOT NULL,   
+  `numSiret` varchar(255) NOT NULL DEFAULT '',
+  `nom_s` varchar(255) NOT NULL DEFAULT '',
+  `telephone_s` varchar(255) NOT NULL DEFAULT '',
+  `horaires_s` varchar(255) NOT NULL DEFAULT '', 
+  `adresse_s` varchar(255) NOT NULL DEFAULT '',  
+  `codePostal_s` varchar(255) NOT NULL DEFAULT '', 
+  `ville_s` varchar(255) NOT NULL DEFAULT '', 
+    
   PRIMARY KEY  (`id_service`),
   KEY `numSiret` (`numSiret`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -129,7 +127,7 @@ CREATE TABLE `Service` (
 
 /*!40000 ALTER TABLE `Service` DISABLE KEYS */;
 LOCK TABLES `Service` WRITE;
-INSERT INTO `Service` VALUES (1,967,'cardiologie','0423556768','10h-20h');
+INSERT INTO `Service` VALUES (1,967,'cardiologie','0423556768','10h-20h','20 rue de la fontaine','69100','Villeurbanne');
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `Service` ENABLE KEYS */;
 
@@ -140,8 +138,8 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `Examen`;
 CREATE TABLE `Examen` (
   `id_examen` int(11) NOT NULL auto_increment,
-  `typeExamen` varchar(255), 
-  `details` varchar(255),
+  `typeExamen` varchar(255) DEFAUlT '', 
+  `details` varchar(255) DEFAUlT '',
   PRIMARY KEY  (`id_examen`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -162,11 +160,11 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Examen_patient`;
 CREATE TABLE `Examen_patient` (
-  `id_examen` int(11) unsigned NOT NULL,  
-  `id_patient` int(11) unsigned NOT NULL,
-  `num_siret` int(11) unsigned NOT NULL, 
-  `date_examen` date default NULL,  
-  `heure_examen` varchar(255) default NULL, 
+  `id_examen` int(11) NOT NULL,  
+  `id_patient` int(11) NOT NULL,
+  `num_siret` int(11) NOT NULL, 
+  `date_examen` date default '0000-00-00',  
+  `heure_examen` varchar(255) DEFAUlT '', 
   `planifie` enum('YES','NO') NOT NULL, 
   `effectue` enum('YES','NO') NOT NULL,
   KEY `id_examen` (`id_examen`),
