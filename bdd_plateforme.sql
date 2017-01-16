@@ -115,12 +115,15 @@ DROP TABLE IF EXISTS `Service`;
 CREATE TABLE `Service` (
   `id_service` int(11) NOT NULL auto_increment,
   `numSiret` varchar(255) NOT NULL DEFAULT '',
+    `centre_s` varchar(255) NOT NULL DEFAULT '',
   `nom_s` varchar(255) NOT NULL DEFAULT '',
   `telephone_s` varchar(255) NOT NULL DEFAULT '',
-  `horaires_s` varchar(255) NOT NULL DEFAULT '', 
+  `horairesd_s` time NOT NULL DEFAULT '00:00:00',
+    `horairesf_s` time NOT NULL DEFAULT '00:00:00',
   `adresse_s` varchar(255) NOT NULL DEFAULT '',  
   `codePostal_s` varchar(255) NOT NULL DEFAULT '', 
-  `ville_s` varchar(255) NOT NULL DEFAULT '', 
+  `ville_s` varchar(255) NOT NULL DEFAULT '',
+    `description_s` varchar(5000) NOT NULL DEFAULT '',
     
   PRIMARY KEY  (`id_service`),
   KEY `numSiret` (`numSiret`)
@@ -132,9 +135,9 @@ CREATE TABLE `Service` (
 
 
 /*!40000 ALTER TABLE `Service` DISABLE KEYS */;
-LOCK TABLES `Service` WRITE;
+/*LOCK TABLES `Service` WRITE;
 INSERT INTO `Service` VALUES (1,967,'cardiologie','0423556768','10h-20h','20 rue de la fontaine','69100','Villeurbanne');
-UNLOCK TABLES;
+UNLOCK TABLES;*/
 /*!40000 ALTER TABLE `Service` ENABLE KEYS */;
 
 --
