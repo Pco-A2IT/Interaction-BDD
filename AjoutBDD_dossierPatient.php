@@ -11,7 +11,7 @@ catch(Exception $e)
 
 }
 
-
+//
 //$reqmt = $bdd->exec('INSERT INTO medecin(id_medecin,nom_m, prenom_m, mail_m,telephone_m) VALUES(NULL,\'YES\',\'YES\',\'YES\',\'YES\')');
 
 /*$reqmt = $bdd->prepare('INSERT INTO medecin(id_medecin,nom_m, prenom_m, mail_m,telephone_m) VALUES(NULL,?,?,?,?)');

@@ -21,7 +21,7 @@ $req->execute(array($_POST['num_adeli_m'], $_POST['civilite_m'], $_POST['nom_m']
 
 
 
-
+//
 
 
 // Redirection du visiteur vers la page du minichat
